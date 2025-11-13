@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="PulseFit Studio Class Schedule — Check class times for Yoga, HIIT, and Zumba. Plan your workouts easily!">
+  <title>PulseFit Studio — Schedule</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== General Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ===== Gym-Style Background ===== */
+    body {
+      background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(43,43,43,0.95)), url('gym-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ff4b4b;
+    }
+
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav {
+      display: flex;
+      gap: 25px;
+      transition: 0.3s ease;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #f5f5f5;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #ff4b4b;
+    }
+
+    .cta {
+      background: #ff4b4b;
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cta:hover {
+      background: #e43e3e;
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* ===== Page Title ===== */
+    .page-title {
+      text-align: center;
+      padding: 50px 0 10px;
+    }
+
+    .page-title h1 {
+      font-size: 2.6rem;
+      color: #ff4b4b;
+    }
+
+    .page-title p {
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+
+    /* ===== Schedule Table ===== */
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+      text-align: center;
+      padding: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    .schedule-table th {
+      background: #ff4b4b;
+      color: white;
+      font-weight: 600;
+    }
+
+    .schedule-table tr:hover {
+      background: rgba(255,75,75,0.15);
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      text-align: center;
+      padding: 25px 0;
+      background: rgba(0,0,0,0.85);
+      color: white;
+      margin-top: 50px;
+      border-top: 2px solid #ff4b4b;
+    }
+
+    .footer .socials a {
+      color: #ff4b4b;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .footer .socials a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.9);
+        position: absolute;
+        right: 20px;
+        top: 80px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      }
+
+      .nav.show {
+        display: flex;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .logo-img {
+        width: 70px;
+        height: 70px;
+      }
+
+      .brand-name {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="container header">
+    <div class="brand">
+      <img src="logo.png" alt="PulseFit Studio Logo" class="logo-img">
+      <div class="brand-name">PulseFit Studio</div>
+    </div>
+    <nav>
+      <button id="navToggle" class="mobile-toggle">☰</button>
+      <div id="mainNav" class="nav">
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="trainers.html">Trainers</a>
+        <a href="schedule.html" class="active">Schedule</a>
+        <a href="register.html" class="cta">Free Trial</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Page Title ===== -->
+  <section class="page-title container">
+    <h1>Class Schedule</h1>
+    <p>Stay consistent with our flexible class times. Choose your favorite workouts!</p>
+  </section>
+
+  <!-- ===== Schedule Table ===== -->
+  <div class="container">
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>7:00 AM - 8:00 AM</th>
+          <th>12:00 PM - 1:00 PM</th>
+          <th>6:00 PM - 7:00 PM</th>
+          <th>7:30 PM - 8:30 PM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Monday</strong></td><td>Yoga</td><td>HIIT</td><td>Zumba</td><td>Strength Training</td></tr>
+        <tr><td><strong>Tuesday</strong></td><td>Cardio Burn</td><td>Yoga</td><td>HIIT</td><td>Pilates</td></tr>
+        <tr><td><strong>Wednesday</strong></td><td>Zumba</td><td>Strength Training</td><td>Yoga</td><td>Core Blast</td></tr>
+        <tr><td><strong>Thursday</strong></td><td>HIIT</td><td>Pilates</td><td>Zumba</td><td>Yoga</td></tr>
+        <tr><td><strong>Friday</strong></td><td>Strength Training</td><td>Cardio</td><td>HIIT</td><td>Stretch & Recover</td></tr>
+        <tr><td><strong>Saturday</strong></td><td colspan="4">Special Weekend Bootcamp (8:00 AM - 10:00 AM)</td></tr>
+        <tr><td><strong>Sunday</strong></td><td colspan="4">Closed — Rest & Recharge</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container small">
+      © 2025 PulseFit Studio — Designed with 💪 passion.
+      <div class="socials">
+        <a href="#">Facebook</a> • <a href="#">Instagram</a> • <a href="#">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle mobile navigation
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('mainNav').classList.toggle('show');
+    });
+  </script>
+
+</body>
+</html>

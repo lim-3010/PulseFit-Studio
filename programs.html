@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore PulseFit Studio programs — Yoga, HIIT, Zumba, Personal Training, Spin Class, and Strength Training. Transform your energy, strength, and confidence.">
+  <title>PulseFit Studio — Programs</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+                  url('gym-bg.jpg') no-repeat center center/cover;
+      color: #f8f8f8;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ff4b4b;
+    }
+
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    /* ===== Navigation ===== */
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav {
+      display: flex;
+      gap: 25px;
+      transition: 0.3s ease;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #f0f0f0;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #ff4b4b;
+    }
+
+    .cta {
+      background: #ff4b4b;
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cta:hover {
+      background: #e43e3e;
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ===== Programs Section ===== */
+    .programs {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .programs h1 {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .programs p {
+      font-size: 1.1rem;
+      color: #ddd;
+      margin-bottom: 35px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      transition: transform 0.5s ease, box-shadow 0.3s ease;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      color: #ff4b4b;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: #f0f0f0;
+      font-size: 0.95rem;
+    }
+
+    /* ===== CTA Section ===== */
+    .cta-section {
+      background: rgba(255, 75, 75, 0.95);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 10px;
+      margin: 50px 0 20px;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    .cta-section p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .cta-section a {
+      background: white;
+      color: #ff4b4b;
+      padding: 10px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cta-section a:hover {
+      background: #ffe5e5;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      text-align: center;
+      padding: 25px 0;
+      background: #111;
+      color: white;
+      margin-top: 40px;
+    }
+
+    .footer .socials a {
+      color: #ff4b4b;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .footer .socials a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.9);
+        position: absolute;
+        right: 20px;
+        top: 80px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      }
+
+      .nav.show {
+        display: flex;
+        animation: slideDown 0.3s ease;
+      }
+
+      @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .logo-img {
+        width: 70px;
+        height: 70px;
+      }
+
+      .brand-name {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header class="container header">
+  <div class="brand">
+    <img src="logo.png" alt="PulseFit Studio Logo" class="logo-img">
+    <div class="brand-name">PulseFit Studio</div>
+  </div>
+  <nav>
+    <button id="navToggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+    <div id="mainNav" class="nav">
+      <a href="index.html">Home</a>
+      <a href="programs.html" class="active">Programs</a>
+      <a href="trainers.html">Trainers</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="register.html" class="cta">Free Trial</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="programs">
+    <h1>Our Fitness Programs</h1>
+    <p>From calm yoga to high-energy HIIT — find your perfect rhythm at PulseFit Studio.</p>
+
+    <div class="grid">
+      <div class="card"><img src="yoga.jpg" alt="Yoga Class"><h3>🧘 Yoga</h3><p>Find balance and flexibility through calm, guided sessions for all levels.</p></div>
+      <div class="card"><img src="hiit.jpg" alt="HIIT Workout"><h3>🔥 HIIT</h3><p>Boost endurance and strength with intense, effective interval training.</p></div>
+      <div class="card"><img src="zumba.jpg" alt="Zumba Dance"><h3>💃 Zumba</h3><p>Dance to the rhythm and burn calories while having fun!</p></div>
+      <div class="card"><img src="training.jpg" alt="Personal Training"><h3>💪 Personal Training</h3><p>1-on-1 sessions to help you achieve your unique fitness goals.</p></div>
+      <div class="card"><img src="spinclass.jpg" alt="Spin Class"><h3>🚴 Spin Class</h3><p>High-energy cycling sessions with music that push your limits and stamina.</p></div>
+      <div class="card"><img src="strength.jpg" alt="Strength Training"><h3>🏋️ Strength Training</h3><p>Build muscle, improve posture, and increase power with expert guidance.</p></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to Start Your Journey?</h2>
+    <p>Join PulseFit Studio today and enjoy a free trial class — no commitment needed!</p>
+    <a href="register.html">Book Your Free Trial</a>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container small">
+    © 2025 PulseFit Studio — Designed with 💪 passion.<br>
+    <div class="socials">
+      <a href="#">Facebook</a> • <a href="#">Instagram</a> • <a href="#">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile navigation toggle
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+  navToggle.addEventListener('click', () => {
+    mainNav.classList.toggle('show');
+  });
+
+  // Animate cards on scroll
+  const cards = document.querySelectorAll('.card');
+  const revealCards = () => {
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect().top;
+      if (rect < window.innerHeight - 100) {
+        card.classList.add('show');
+      }
+    });
+  };
+  window.addEventListener('scroll', revealCards);
+  window.addEventListener('load', revealCards);
+</script>
+</body>
+</html>
